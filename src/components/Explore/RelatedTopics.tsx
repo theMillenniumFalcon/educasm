@@ -1,3 +1,5 @@
+import React from "react"
+
 interface RelatedTopicsProps {
   topics: Array<{
     topic: string;

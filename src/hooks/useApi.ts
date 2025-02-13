@@ -1,7 +1,8 @@
-// src/hooks/useApi.ts
 import { useState } from "react";
 import { Question, UserContext } from "../types";
-import { api } from "../services/api";
+import { APIService } from "../services/api";
+
+const apiService = new APIService();
 
 export const useApi = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +14,7 @@ export const useApi = () => {
   ): Promise<Question> => {
     try {
       setIsLoading(true);
-      return await api.getQuestion(topic, level, userContext);
+      return await apiService.getQuestion(topic, level, userContext);
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : "An error occurred";
@@ -27,7 +28,7 @@ export const useApi = () => {
     setIsLoading(true);
     try {
       console.log('Generating test for:', { topic, examType });
-      const questions = await api.generateTest(topic, examType);
+      const questions = await apiService.generateTest(topic, examType);
       console.log('API response:', questions);
       return questions;
     } catch (err) {
@@ -41,7 +42,7 @@ export const useApi = () => {
   const explore = async (query: string, userContext: UserContext) => {
     setIsLoading(true);
     try {
-      return await api.explore(query, userContext);
+      return await apiService.explore(query, userContext);
     } catch (err) {
       console.error("API Error:", err);
       throw err;

@@ -1,32 +1,15 @@
-// src/components/Playground/PlaygroundView.tsx
 import React, { useState, useEffect } from "react";
 import { SearchBar } from "../shared/SearchBar";
 import { Loading } from "../shared/Loading";
 import { useApi } from "../../hooks/useApi";
 import { Trophy, Timer, Target, Award, Pause, Play, CheckCircle, XCircle, Lightbulb } from "lucide-react";
-import { Question, UserContext } from "../../types";
+import { Question, Stats, UserContext, TopicProgress } from "../../types";
 
 interface PlaygroundViewProps {
   initialQuery?: string;
   onError: (message: string) => void;
   onSuccess: (message: string) => void;
   userContext: UserContext;
-}
-
-interface Stats {
-  questions: number;
-  accuracy: number;
-  streak: number;
-  bestStreak: number;
-  avgTime: number;
-}
-
-interface TopicProgress {
-  totalAttempts: number;
-  successRate: number;
-  averageTime: number;
-  lastLevel: number;
-  masteryScore: number;
 }
 
 export const PlaygroundView: React.FC<PlaygroundViewProps> = ({
@@ -493,5 +476,3 @@ export const PlaygroundView: React.FC<PlaygroundViewProps> = ({
     </div>
   );
 };
-
-// abc

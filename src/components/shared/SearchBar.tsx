@@ -1,4 +1,3 @@
-// src/components/shared/SearchBar.tsx
 import React, { useState, KeyboardEvent, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion"; // You'll need to install framer-motion
 
