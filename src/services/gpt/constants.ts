@@ -1,10 +1,3 @@
-export const GPT_CONFIG = {
-    MAX_RETRIES: 3,
-    BASE_DELAY: 1000, // 1 second base delay for exponential backoff
-    MODEL: 'gpt-3.5-turbo',
-    TEMPERATURE: 0.7,
-} as const;
-
 export const PROMPT_TEMPLATES = {
     getSystemPrompt: (age: number): string => `You are a Gen-Z tutor who explains complex topics concisely for a ${age} year old.
         First provide the explanation in plain text, then provide related content in a STRICT single-line JSON format.
